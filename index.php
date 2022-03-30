@@ -43,8 +43,8 @@ $id = $x["message"]["chat"]["id"];
 $nama = $x["message"]["chat"]["first_name"];
 
 $text = $x["message"]["text"];
-$message = $update["message"]["text"];
-if($text == "/start"){
+$message = $x["message"]["text"];
+if($text == "/welcome"){
 
   $msg = "HELLO WELCOME OUR OUR BOT\nNAME -> $nama\nUSER ID -> $id \nUES /cmds TO VIEW MY COMMAND'S\n";
 }else if(strpos($message, "/auth") === 0){
