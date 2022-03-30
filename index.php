@@ -43,16 +43,14 @@ $id = $x["message"]["chat"]["id"];
 $nama = $x["message"]["chat"]["first_name"];
 
 $text = $x["message"]["text"];
-
+$message = $update["message"]["text"];
 if($text == "/start"){
 
   $msg = "HELLO WELCOME OUR OUR BOT\nNAME -> $nama\nUSER ID -> $id \nUES /cmds TO VIEW MY COMMAND'S\n";
-}else if($text == "/info"){
-
- $auth = substr($text, 5);
- $msg = $auth;
- }
-
+}else if(strpos($message, "/auth") === 0){
+$sec = substr($message, 4);
+$msg = $sec;
+}
 get($id,$msg);
 
 ?>
