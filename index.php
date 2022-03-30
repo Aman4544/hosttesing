@@ -46,21 +46,7 @@ $text = $x["message"]["text"];
 
 if($text == "/start"){
 
-  $msg = "HELLO WELCOME OUR OUR BOT \n NAME -> $name & USER ID -> $id \nUES /cmds TO VIEW MY COMMAND'S\n";
-
-}else{
-if(strpos($text,"youtu.be") != null | strpos($text,"youtube.com") != null){
-
-  $link = $text;
-   if(file_exists("save.html")){
-       unlink("save.html");
-       }
-  include("file.php");
-  $msg = file_get_contents("save.html");
-}else{
-    // bila tidak url YouTube kita bisa kasih message
-    $msg = "maaf url tidak Valid";
-}
+  $msg = "HELLO WELCOME OUR OUR BOT \n NAME -> $nama & USER ID -> $id \nUES /cmds TO VIEW MY COMMAND'S\n";
 }
 
 get($id,$msg);
