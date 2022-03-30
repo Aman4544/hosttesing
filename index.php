@@ -47,7 +47,11 @@ $text = $x["message"]["text"];
 if($text == "/start"){
 
   $msg = "HELLO WELCOME OUR OUR BOT\nNAME -> $nama\nUSER ID -> $id \nUES /cmds TO VIEW MY COMMAND'S\n";
-}
+}else{
+if(strpos($text == "/info) != null){
+
+ $mes = "ok";
+ }
 
 get($id,$msg);
 
