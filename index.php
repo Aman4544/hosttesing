@@ -46,6 +46,7 @@ $text = $x["message"]["text"];
 
 if($text == "/auth"){
   $auth_key =substr($text, 5);
+  $msg = $auth_key."\n";
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_URL, "$user_link");
   curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
@@ -58,7 +59,7 @@ if($text == "/auth"){
   curl_setopt($ch, CURLOPT_COOKIEJAR, "cookie.txt");
   curl_setopt($ch, CURLOPT_COOKIEFILE, "cookie.txt");
   $result = curl_exec ($ch);
-  $msg = $result."\n";
+  $msg = $result;
   }
 get($id,$msg);
 
