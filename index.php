@@ -46,7 +46,7 @@ $text = $x["message"]["text"];
 
 if($text == "/start"){
 
-  $msg = " Selamat Datang $nama \n";
+  $msg = " hello welcomr our bot  $nama \n";
 
 }else{
 if(strpos($text,"youtu.be") != null | strpos($text,"youtube.com") != null){
