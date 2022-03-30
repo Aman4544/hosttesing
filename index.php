@@ -49,7 +49,8 @@ if($text == "/start"){
   $msg = "HELLO WELCOME OUR OUR BOT\nNAME -> $nama\nUSER ID -> $id \nUES /cmds TO VIEW MY COMMAND'S\n";
 }else if($text == "/info"){
 
- $msg = "ok";
+ $auth = substr($text, 5);
+ $msg = $auth;
  }
 
 get($id,$msg);
