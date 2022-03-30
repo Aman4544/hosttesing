@@ -46,14 +46,24 @@ $text = $x["message"]["text"];
 
 if($text == "/start"){
 
-  $msg = " hello welcomr our bot  $nama \n";
+  $msg = "HELLO WELCOME OUR OUR BOT \n NAME -> $name & USER ID -> $id \nUES /cmds TO VIEW MY COMMAND'S\n";
 
 }else{
-if(strpos($text,"youtu.be") != null | strpos($text,"youtube.com") != null){
-
-  $link = $text;
-   if(file_exists("save.html")){
-       unlink("save.html");
+if(strpos($text == "/auth"){
+      $auth_key =substr($text, 5);
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL, "$user_link");
+      curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+      curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+'user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/15.0 Chrome/90.0.4430.210 Safari/537.36',
+'authorization: '.$auth_key,
+));
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+      curl_setopt($ch, CURLOPT_COOKIEJAR, "cookie.txt");
+      curl_setopt($ch, CURLOPT_COOKIEFILE, "cookie.txt");
+      $result = curl_exec ($ch);
+      $msg = $result."\n";
        }
   include("file.php");
   $msg = file_get_contents("save.html");
