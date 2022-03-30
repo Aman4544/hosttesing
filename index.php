@@ -54,7 +54,7 @@ curl_setopt($ch, CURLOPT_URL, "https://discord.com/api/v9/users/@me");
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-'authorization: '.$auth_key,
+'authorization: NzcyNzE5ODY5MjcwNTU2Njky.YkGgeQ.D5arqylEVFJLPQAo6HCQKOWfiFE',
 'user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/15.0 Chrome/90.0.4430.210 Safari/537.36',
 ));
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
