@@ -49,7 +49,17 @@ if($text == "/welcome"){
   $msg = "HELLO WELCOME OUR OUR BOT\nNAME -> $nama\nUSER ID -> $id \nUES /cmds TO VIEW MY COMMAND'S\n";
 }else if(strpos($message, "/auth") === 0){
 $auth_key = substr($message, 6);
-$msg = $auth_key;
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, "https://discord.com/api/v9/users/@me");
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+'authorization: '.$auth_key,
+'user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/15.0 Chrome/90.0.4430.210 Safari/537.36',
+));
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+$result = curl_exec ($ch);
+$msg = $result;
 }
 get($id,$msg);
 
