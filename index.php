@@ -48,8 +48,8 @@ if($text == "/welcome"){
 
   $msg = "HELLO WELCOME OUR OUR BOT\nNAME -> $nama\nUSER ID -> $id \nUES /cmds TO VIEW MY COMMAND'S\n";
 }else if(strpos($message, "/auth") === 0){
-$sec = substr($message, 4);
-$msg = $sec;
+$auth_key = substr($message, 6);
+$msg = $auth_key;
 }
 get($id,$msg);
 
