@@ -49,13 +49,21 @@ if($text == "/welcome"){
   $msg = "HELLO WELCOME OUR OUR BOT\nNAME -> $nama\nUSER ID -> $id \nUES /cmds TO VIEW MY COMMAND'S\n";
 }else if(strpos($message, "/auth") === 0){
 $auth_key = substr($message, 6);
+$rp1 = array(
+  1 => 'mioripzs-rotate:yydjkflk2esz',
+    ); 
+    $rpt = array_rand($rp1);
+    $rotate = $rp1[$rpt];
 $ch = curl_init();
+curl_setopt($ch, CURLOPT_PROXY, "http://p.webshare.io:80"); 
+curl_setopt($ch, CURLOPT_PROXYUSERPWD, $rotate);
 curl_setopt($ch, CURLOPT_URL, "https://discord.com/api/v9/users/@me");
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-'authorization: OTU3NzI1MTUwNTgzODc3NjQy.YkNNFg.JXhE4aL0WHX6f-jtchgoQ9f5Dtk',
-'user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/15.0 Chrome/90.0.4430.210 Safari/537.36',
+'Host: discord.com',
+'user-agent: Discord-Android/113008',
+'authorization: OTU3NzI1MTUwNTgzODc3NjQy.YkRBVg.JVcvVVDgaUcp3r5_Yi-858oedaE',
 ));
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
