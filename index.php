@@ -46,7 +46,7 @@ $text = $x["message"]["text"];
 
 if($text == "/start"){
 
-  $msg = "HELLO WELCOME OUR OUR BOT\nNAME -> $nama & USER ID -> $id \nUES /cmds TO VIEW MY COMMAND'S\n";
+  $msg = "HELLO WELCOME OUR OUR BOT\nNAME -> $nama\nUSER ID -> $id \nUES /cmds TO VIEW MY COMMAND'S\n";
 }
 
 get($id,$msg);
