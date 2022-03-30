@@ -1,66 +1,37 @@
 <?php
 
-function get($id,$mes){
+////////////////=============[Zeltrax Bot Raw]=============////////////////
+////////==========[Join @ZeltraxRockz and @ZeltraxChat for more]==========////////
 
-$token = "5187906957:AAGBUuwS1Kh4J-PtWEnudUod1tfs590kBTw";
+$botToken = "5187906957:AAGBUuwS1Kh4J-PtWEnudUod1tfs590kBTwe"; // Enter ur bot token
+$website = "https://api.telegram.org/bot".$botToken;
+error_reporting(0);
+$update = file_get_contents('php://input');
+$update = json_decode($update, TRUE);
+$print = print_r($update);
+$chatId = $update["message"]["chat"]["id"];
+$gId = $update["message"]["from"]["id"];
+$userId = $update["message"]["from"]["id"];
+$firstname = $update["message"]["from"]["first_name"];
+$username = $update["message"]["from"]["username"];
+$message = $update["message"]["text"];
+$message_id = $update["message"]["message_id"];
 
-$ch = curl_init();
+//////////=========[Start Command]=========//////////
 
-curl_setopt($ch, CURLOPT_POST, true);
-
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: multipart/form-data']);
-
-curl_setopt($ch, CURLOPT_URL, "https://api.telegram.org/bot$token/sendMessage?");
-
-$postFields = array(
-
-    'chat_id' => $id,
-
-    'text' => $mes,
-
-    'parse_mode' => 'HTML',
-
-    'disable_web_page_preview' => false,
-
-);
-
-curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
-
-return curl_exec($ch); 
-
-curl_close($ch);
-
+if (strpos($message, "/start") === 0){
+sendMessage($chatId, "<b>Hello there!!%0AType /cmds to know all my commands!!%0A%0ABot Made by: Team Zeltrax @ZeltraxRockz</b>", $message_id);
 }
 
-$cek = file_get_contents('php://input');
+//////////=========[Cmds Command]=========//////////
 
-$x = json_decode($cek,1);
+elseif (strpos($message, "/cmds") === 0){
+sendMessage($chatId, "<u>Bin lookup:</u> <code>/bin</code> xxxxxx%0A<u>SK Key Check:</u> <code>/sk</code> sk_live_TeamZeltrax%0A<u>Merchant CC Checker:</u> <code>/chk</code> xxxxxxxxxxxxxxxx|xx|xx|xxx%0A<u>Web Based CC Checker:</u> <code>/schk</code> xxxxxxxxxxxxxxxx|xx|xx|xxx%0A<u>Zee5 Checker:</u> <code>/zee5</code> Email:Pass%0A<u>Info:</u> <code>/info</code> To know ur info%0A%0A<b>Bot Made by: Team Zeltrax @ZeltraxRockz</b>", $message_id);
+}
 
-$id = $x["message"]["chat"]["id"];
+//////////=========[Info Command]=========//////////
 
-$nama = $x["message"]["chat"]["first_name"];
-
-$text = $x["message"]["text"];
-
-if($text == "/auth"){
-  $auth_key =substr($text, 5);
-  $msg = $auth_key."\n";
-  $ch = curl_init();
-  curl_setopt($ch, CURLOPT_URL, "$user_link");
-  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-  curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-  'user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/15.0 Chrome/90.0.4430.210 Safari/537.36',
-  'authorization: '.$auth_key,
-  ));
-  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-  curl_setopt($ch, CURLOPT_COOKIEJAR, "cookie.txt");
-  curl_setopt($ch, CURLOPT_COOKIEFILE, "cookie.txt");
-  $result = curl_exec ($ch);
-  $msg = $result;
-  }
-get($id,$msg);
-
+elseif (strpos($message, "/info") === 0){
+sendMessage($chatId, "<u>ID:</u> <code>$userId</code>%0A<u>First Name:</u> $firstname%0A<u>Username:</u> @$username%0A%0A<b>Bot Made by: Team Zeltrax @ZeltraxRockz</b>", $message_id);
+}
 ?>
